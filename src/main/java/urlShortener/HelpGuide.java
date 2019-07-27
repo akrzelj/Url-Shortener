@@ -35,7 +35,7 @@ public class HelpGuide {
             "-------- in this example you would set \"password\" to \":$kl;VWc\"</br>"+
             "---- Response type: application/json</br>"+
             "---- Response</br>"+
-            "-------- {\"www.fesb.hr\":0,\"www.fesb.hr\":4}</p> </br>"+
+            "-------- {\"www.pokusaj.hr\":0,\"www.fesb.hr\":4}</p> </br>"+
             "<h2>--------------CONSUMING THE API-----------------</h2>"+
             "<h3>##User can get full URL for short link by sending following http request</h3>"+
             "<p>---- HTTP method: GET</br>"+
