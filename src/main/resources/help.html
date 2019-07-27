@@ -1,0 +1,49 @@
+<h1>User guide for UrlShortener</h1>
+
+<h2>-----------------CONFIGURATION---------------------</h2>
+
+<p>#To shorten any link you have to open an account first.</p>
+
+<h3>##You open an account by sending following http request:</h3>
+<pre><p>---- HTTP method: POST
+---- URI : localhost:8080/account
+---- Request body: json object with accountId (String, required)
+-------- example: { "accountId": "users123"}
+---- Request type: application/json
+---- Response type: application/json
+---- Response
+-------- if success {"password":":$kl;VWc","success":"true","description":"Account was successful created"}
+-------- if faild   {"success":"false","description":"Account eith provided ID allready exsists"} </p> </pre>
+
+<h3>##URL shortening is donen by sending following http request:</h3>
+<pre><p>---- HTTP method: POST
+---- URI : localhost:8080/register
+---- Request header: set property "password" to your password which you got at registration
+-------- in this example you would set "password" to ":$kl;VWc"
+---- Request body: json object with: url which has to be shortened(required), redirect type(optional, 302 by default)
+-------- example: { "fullUrl": "www.fesb.hr", "redirectType": 301}
+-------- example: { "fullUrl": "www.fesb.hr"}
+---- Request type: application/json
+---- Response type: application/json
+---- Response
+-------- {"shortUrl":"http://short.com/IOIoVtJo"}</p> </pre>
+
+<h3>##You can get visit statistics for given user by sending following http request</h3>
+<pre><p>---- HTTP method: GET
+---- URI : localhost:8080/statistics/{accountId}
+---- Request header: set property "password" to your password which you got at registration
+-------- in this example you would set "password" to ":$kl;VWc"
+---- Response type: application/json
+---- Response
+-------- {"www.pokusaj.hr":0,"www.fesb.hr":4}</p> </pre>
+
+
+<h2>--------------CONSUMING THE API-----------------</h2>
+<h3>##User can get full URL for short link by sending following http request</h3>
+<pre><p>---- HTTP method: GET
+---- URI : localhost:8080/statistics/
+---- Request body: json object with: shortUrl (required)
+-------- example: {"shortUrl":"http://short.com/fJhWUpCM"}
+---- Response type: application/json
+---- Response
+-------- {"Full URL: ":"www.fesb.hr"}</p> </pre>
